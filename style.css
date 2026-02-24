@@ -76,3 +76,34 @@ button {
     color: white;
     cursor: pointer;
 }
+
+/* --- Dark Mode Styles --- */
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+/* Make the main container and input area dark */
+.dark-mode .chat-container,
+.dark-mode .input-area {
+    background: #1e1e1e;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* Darken the chat background */
+.dark-mode .chat-box {
+    background: #2d2d2d;
+}
+
+/* Darken the bot's messages so they don't blind the user */
+.dark-mode .bot-message {
+    background: #444;
+    color: #fff;
+}
+
+/* Darken the text input field */
+.dark-mode input {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+}
