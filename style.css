@@ -1,109 +1,221 @@
+/* --- 1. Modern Typography --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Poppins', sans-serif;
+    /* Default Vibrant Background */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: #ffffff;
+    transition: all 0.5s ease;
 }
 
+/* Background Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- 2. The Frosted Glass Chat Container (Light Mode Default) --- */
 .chat-container {
-    width: 400px;
-    height: 600px;
-    background: white;
-    border-radius: 20px;
+    width: 420px;
+    height: 650px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     overflow: hidden;
+    transition: all 0.5s ease;
 }
 
 .chat-header {
-    background: #6a11cb;
-    color: white;
-    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 20px;
     text-align: center;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .chat-box {
     flex: 1;
-    padding: 15px;
+    padding: 20px;
     overflow-y: auto;
-    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
+.chat-box::-webkit-scrollbar { width: 6px; }
+.chat-box::-webkit-scrollbar-thumb { 
+    background-color: rgba(255, 255, 255, 0.4); 
+    border-radius: 10px; 
+}
+
+/* --- 3. Message Bubbles (Light Mode Default) --- */
 .bot-message, .user-message {
-    padding: 10px 15px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    max-width: 75%;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.9) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .bot-message {
-    background: #e0e0e0;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
     align-self: flex-start;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom-left-radius: 4px;
+    transition: all 0.5s ease;
 }
 
 .user-message {
-    background: #6a11cb;
-    color: white;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c); /* Pink gradient */
+    color: #ffffff;
     align-self: flex-end;
-    margin-left: auto;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+    transition: all 0.5s ease;
 }
 
+/* --- 4. Input Area & Buttons (Light Mode Default) --- */
 .input-area {
     display: flex;
-    padding: 10px;
-    background: white;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: all 0.5s ease;
 }
 
 input {
     flex: 1;
-    padding: 10px;
+    min-width: 200px;
+    padding: 12px 16px;
     border-radius: 20px;
-    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input::placeholder { color: rgba(255, 255, 255, 0.7); }
+
+input:focus {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 button {
-    margin-left: 10px;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 20px;
     border: none;
-    background: #6a11cb;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c); /* Pink gradient */
     color: white;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
 }
 
-/* --- Dark Mode Styles --- */
-.dark-mode {
-    background: #121212;
-    color: white;
+button:hover { transform: translateY(-2px); }
+button:active { transform: translateY(1px); }
+
+#clear-btn, #darkModeBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+}
+#clear-btn:hover, #darkModeBtn:hover { background: rgba(255, 255, 255, 0.25); }
+
+
+/* =========================================================
+   5. MIDNIGHT GLASS DARK MODE (TOTALLY DIFFERENT LOOK)
+   ========================================================= */
+
+/* The background changes to deep space/cyberpunk dark blues and blacks */
+body.dark-mode {
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #000000, #24243e);
+    background-size: 400% 400%;
 }
 
-/* Make the main container and input area dark */
-.dark-mode .chat-container,
-.dark-mode .input-area {
-    background: #1e1e1e;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+/* Container becomes dark tinted glass */
+body.dark-mode .chat-container {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
 }
 
-/* Darken the chat background */
-.dark-mode .chat-box {
-    background: #2d2d2d;
+body.dark-mode .chat-header {
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Darken the bot's messages so they don't blind the user */
-.dark-mode .bot-message {
-    background: #444;
-    color: #fff;
+/* Bot messages become dark glass */
+body.dark-mode .bot-message {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
 }
 
-/* Darken the text input field */
-.dark-mode input {
-    background: #333;
-    color: white;
-    border: 1px solid #555;
+/* User messages & main button shift from pink to Neon Cyan */
+body.dark-mode .user-message {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+}
+
+body.dark-mode button {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+}
+
+body.dark-mode .input-area {
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Input box becomes dark glass with a neon focus outline */
+body.dark-mode input {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode input:focus {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: #00c6ff;
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.3);
+}
+
+/* Secondary buttons match the dark theme */
+body.dark-mode #clear-btn, body.dark-mode #darkModeBtn {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.dark-mode #clear-btn:hover, body.dark-mode #darkModeBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
