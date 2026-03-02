@@ -76,3 +76,34 @@ button {
     color: white;
     cursor: pointer;
 }
+
+/* MY added css folder */
+
+.controls {
+    text-align: center;
+    margin: 10px 0;
+}
+
+button {
+    padding: 6px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Dark Mode */
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark .chat-container {
+    background-color: #1e1e1e;
+}
