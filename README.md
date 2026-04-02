@@ -1,22 +1,43 @@
-🤖 Static AI Chatbot
-A sleek, responsive, and lightweight chatbot interface built using pure HTML, CSS, and JavaScript. This project serves as a perfect template for integrating various LLM APIs or creating a rule-based automated assistant for websites.
+# 💬 Static Chatbot
+
+A simple and interactive static chatbot built using **HTML**, **CSS**, and **JavaScript**. This project demonstrates how to create a basic chatbot UI and logic without any backend or AI integration.
+
+---
+
+## 🚀 Features
+
+- Clean and responsive UI
+- User-friendly chat interface
+- Predefined bot responses
+- Fast and lightweight (no backend required)
+- Easy to customize
+
+---
+
+## 📁 Project Structure
+static-chatbot/
+│── index.html # Main HTML file
+│── style.css # Styling for chatbot UI
+│── script.js # Chatbot logic
+│── README.md # Project documentation
 
 
+---
 
-✨ Features
-Responsive Design: Fully functional on mobile, tablet, and desktop screens.
+## 🛠️ Technologies Used
 
-Real-time Interaction: Instant message rendering with smooth animations.
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
 
-Simulated Bot Responses: Built-in logic to handle automated replies.
+---
 
-Clean UI: Modern chat bubbles with distinct styling for user and bot.
 
-Lightweight: Zero dependencies; no heavy frameworks like React or Vue required.
+## ⚙️ How It Works
 
-🛠️ Tech Stack
-HTML5: Structure and content.
+1. User types a message in the input box
+2. JavaScript captures the input
+3. The bot checks predefined responses
+4. A matching reply is displayed in the chat window
 
-CSS3: Styling, Flexbox, and smooth transitions.
-
-JavaScript (ES6): DOM manipulation and chat logic.
+---
